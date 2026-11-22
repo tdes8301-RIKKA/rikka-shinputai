@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="kiln">
+  <title>池坊立花新風體｜誕生脈絡、空間結構與水際法度導覽</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces: unbleached linen and river clay */
+      --background: #f4f1ea;
+      --surface-container-low: #ebe6db;
+      --surface-container: #e3ddd0;
+      --surface-container-high: #d9d1c2;
+
+      /* Ink */
+      --on-surface: #1c1b18;
+      --on-surface-variant: #5e5a51;
+
+      /* Rules */
+      --outline: #1c1b18;
+      --outline-variant: #d2cbbd;
+
+      /* Accents */
+      --primary: #1c1b18;
+      --on-primary: #f4f1ea;
+      --primary-container: #ebe6db;
+      --on-primary-container: #1c1b18;
+      --secondary: #4a5d46;
+      --tertiary: #9e3b2b;
+      --error: #9e2a22;
+      --on-error: #f4f1ea;
+
+      /* Data series & diagram accents */
+      --data-1: #4a5d46;
+      --data-2: #9e3b2b;
+      --data-3: #1c1b18;
+      --data-4: #8a6f48;
+      --data-context: #c7bfb0;
+
+      /* Semantic */
+      --positive: #3e573b;
+      --warning: #8a6f48;
+
+      /* Focus ring */
+      --focus: #1c1b18;
+
+      /* Fonts (CJK listed first per design foundation) */
+      --font-headline: 'Noto Serif TC', 'Shippori Mincho', serif;
+      --font-body: 'Noto Sans TC', 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Geist Mono', 'Noto Sans TC', monospace;
+
+      /* Shape */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --rule-sumi-left: 2px solid var(--outline);
+      --rule-moss-left: 2px solid var(--secondary);
+      --rule-cinnabar-left: 2px solid var(--tertiary);
+      --rule-sumi: 1px solid var(--outline);
+      --rule-linen: 1px solid var(--outline-variant);
+      --label-tracking: 0.14em;
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.35rem, 1.5rem + 3.2vw, 3.85rem);
+      --headline-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.2rem);
+      --subhead-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.09375rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 5.5rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-xl) var(--space-lg) var(--space-3xl);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Typography */
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--display-size);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    h2.section-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--headline-size);
+      line-height: 1.25;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    h3.sub-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      line-height: 1.35;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .subhead-moss {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: var(--subhead-size);
+      line-height: 1.45;
+      color: var(--secondary);
+      margin: var(--space-sm) 0 0;
+    }
+
+    .prose {
+      max-width: 65ch;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .prose-muted {
+      max-width: 65ch;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+
+    .label-mono {
+      font-family: var(--font-label);
+      font-weight: 500;
+      font-size: var(--label-size);
+      letter-spacing: var(--label-tracking);
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .label-cjk {
+      font-family: var(--font-label);
+      font-weight: 500;
+      font-size: var(--label-size);
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: var(--secondary);
+    }
+
+    /* Kiln defining treatments */
+    .seal-stamp {
+      border: 1px solid var(--tertiary);
+      color: var(--tertiary);
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.2em;
+      padding: var(--space-sm) 0.4375rem;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      line-height: 1.3;
+      user-select: none;
+      align-self: start;
+      justify-self: end;
+      background-color: var(--background);
+    }
+
+    .washi-card {
+      background-color: var(--surface-container-low);
+      border-left: var(--rule-sumi-left);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+    }
+
+    .washi-card-moss {
+      background-color: var(--surface-container-low);
+      border-left: var(--rule-moss-left);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+    }
+
+    .washi-card-cinnabar {
+      background-color: var(--surface-container-low);
+      border-left: var(--rule-cinnabar-left);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+    }
+
+    .washi-value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+      line-height: 1.2;
+      color: var(--on-surface);
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+
+    .washi-note {
+      color: var(--secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-top: var(--space-xs);
+    }
+
+    /* Masthead */
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-lg);
+      padding-bottom: var(--space-xl);
+      border-bottom: var(--rule-sumi);
+    }
+
+    .masthead-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-lg);
+      align-items: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .tag-square {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border: var(--rule-linen);
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .masthead-summary {
+      margin-top: var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    /* Chapter Jump Bar */
+    .toc-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0;
+      border-bottom: var(--rule-linen);
+    }
+
+    .toc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      background-color: var(--surface-container-low);
+      border: var(--rule-linen);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+    }
+
+    .toc-link:hover {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .toc-num {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+    }
+
+    /* Section framing */
+    .chapter {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+      padding-top: var(--space-xl);
+      border-top: var(--rule-linen);
+    }
+
+    .chapter:first-of-type {
+      border-top: none;
+      padding-top: var(--space-md);
+    }
+
+    .chapter-header {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .split-layout-wide-right {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+
+    /* Buttons & Interactive Controls */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .btn-kiln {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border: var(--rule-sumi);
+      border-radius: var(--rounded);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+      text-align: left;
+    }
+
+    .btn-kiln:hover {
+      background-color: var(--surface-container-high);
+    }
+
+    .btn-kiln[aria-pressed="true"],
+    .btn-kiln.is-active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .btn-kiln[aria-pressed="true"] .btn-code,
+    .btn-kiln.is-active .btn-code {
+      color: var(--surface-container-high);
+    }
+
+    .btn-code {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+    }
+
+    /* Timeline Era Selector */
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+
+    .era-btn {
+      min-height: 44px;
+      padding: var(--space-md);
+      border: var(--rule-linen);
+      border-top: 2px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      text-align: left;
+      display: grid;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+    }
+
+    .era-btn:hover {
+      background-color: var(--surface-container);
+    }
+
+    .era-btn[aria-pressed="true"] {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+      border-top: 2px solid var(--tertiary);
+    }
+
+    .era-year {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+      letter-spacing: 0.06em;
+    }
+
+    .era-btn[aria-pressed="true"] .era-year {
+      color: var(--tertiary);
+    }
+
+    .era-name {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.0625rem;
+    }
+
+    /* Tables */
+    .kiln-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+
+    .kiln-table th {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--secondary);
+      text-align: left;
+      padding: var(--space-sm) var(--space-md) var(--space-sm) 0;
+      border-top: var(--rule-sumi);
+      border-bottom: var(--rule-sumi);
+    }
+
+    .kiln-table td {
+      padding: var(--space-md) var(--space-md) var(--space-md) 0;
+      border-bottom: var(--rule-linen);
+      vertical-align: top;
+    }
+
+    /* Interactive Diagram Frame */
+    .diagram-frame {
+      background-color: var(--surface-container-low);
+      border: var(--rule-linen);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .diagram-stage {
+      width: 100%;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--background);
+      border: var(--rule-linen);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+
+    .diagram-stage svg {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      display: block;
+    }
+
+    /* SVG interactive highlights */
+    .svg-layer {
+      transition: opacity var(--dur-short) var(--ease-out);
+    }
+    .svg-layer.is-dimmed {
+      opacity: 0.22;
+    }
+    .svg-layer.is-highlighted {
+      opacity: 1;
+    }
+
+    /* Range Slider */
+    .control-group {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .control-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    input[type="range"].kiln-slider {
+      width: 100%;
+      min-height: 44px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin: 0;
+    }
+
+    /* Quote Block */
+    .monograph-quote {
+      border-left: var(--rule-cinnabar-left);
+      padding: var(--space-md) var(--space-lg);
+      background-color: var(--surface-container-low);
+      margin: 0;
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .monograph-quote blockquote {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: var(--subhead-size);
+      line-height: 1.55;
+      color: var(--on-surface);
+    }
+
+    .monograph-quote figcaption {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+    }
+
+    /* Checklist */
+    .checklist-grid {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-md);
+      align-items: start;
+      padding: var(--space-md);
+      background-color: var(--surface-container-low);
+      border: var(--rule-linen);
+      border-left: var(--rule-sumi-left);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      min-height: 44px;
+      text-align: left;
+      width: 100%;
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .check-item:hover {
+      background-color: var(--surface-container);
+    }
+
+    .check-item[aria-checked="true"] {
+      background-color: var(--surface-container);
+      border-left: var(--rule-moss-left);
+    }
+
+    .check-box {
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--outline);
+      border-radius: var(--rounded);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      background-color: var(--background);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--on-primary);
+    }
+
+    .check-item[aria-checked="true"] .check-box {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    .progress-bar-wrap {
+      height: 6px;
+      background-color: var(--surface-container-high);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--secondary);
+      width: 0%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Container Queries for adaptive internal cards */
+    .card-wrapper { container-type: inline-size; }
+    @container (max-width: 520px) {
+      .split-inner-adaptive {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    .colophon {
+      padding-top: var(--space-xl);
+      border-top: var(--rule-sumi);
+      display: grid;
+      gap: var(--space-sm);
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+    }
+
+    /* Scroll reveal */
+    .reveal-section {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
+    }
+
+    @media (max-width: 780px) {
+      .split-layout,
+      .split-layout-wide-right {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-lg);
+      }
+      .masthead {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .seal-stamp {
+        writing-mode: horizontal-tb;
+        justify-self: start;
+        letter-spacing: 0.12em;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <div>
+        <div class="masthead-meta">
+          <span class="tag-square">池坊花道筆記整理</span>
+          <span class="label-mono">1999 — 45TH IEMOTO</span>
+        </div>
+        <h1 class="display">立花新風體</h1>
+        <p class="subhead-moss">從當下的感動出發：在沒有役枝束縛的自由中，以垂直水際構築「變化球體」宇宙</p>
+        <p class="prose" style="margin-top: var(--space-md);">
+          立花新風體並非割裂古典的標新立異，而是延續池坊五百年立花精神、回應現代居住空間與生活節奏的新形式。作品不設固定位置與役枝名稱，全憑創作者凝視植物生命力後的「感動」，以「正中線」凝聚三百六十度球體空間，並以「立」的垂直水際承接大地與向上生長的希望。
+        </p>
+
+        <div class="masthead-summary">
+          <div class="washi-card">
+            <div class="label-mono">ESTABLISHED</div>
+            <div class="washi-value">1999 年</div>
+            <div class="washi-note">第45世家元發表，較生花新風體晚約 22 年</div>
+          </div>
+          <div class="washi-card">
+            <div class="label-mono">MIZUGIWA BASE</div>
+            <div class="washi-value">約兩指高</div>
+            <div class="washi-note">水際必垂直直立，壓低基部以拉長枝梢張力</div>
+          </div>
+          <div class="washi-card">
+            <div class="label-mono">OVERALL SCALE</div>
+            <div class="washi-value">1.0 — 1.2 m</div>
+            <div class="washi-note">連花器總高基準；輕盈細枝可適度伸展至 1.2 米</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seal-stamp" aria-label="立花新風體講義印記">立花新風體・要訣</div>
+    </header>
+
+    <!-- NAVIGATION STRIP -->
+    <nav class="toc-strip" aria-label="章節導覽">
+      <a class="toc-link" href="#sec-history"><span class="toc-num">01</span>誕生背景與時代</a>
+      <a class="toc-link" href="#sec-philosophy"><span class="toc-num">02</span>感動與自然理念</a>
+      <a class="toc-link" href="#sec-structure"><span class="toc-num">03</span>正中線與球體空間</a>
+      <a class="toc-link" href="#sec-materials"><span class="toc-num">04</span>主・用・補枝選材</a>
+      <a class="toc-link" href="#sec-mizugiwa"><span class="toc-num">05</span>水際直立與兩指基準</a>
+      <a class="toc-link" href="#sec-overlap"><span class="toc-num">06</span>有目的之重疊</a>
+      <a class="toc-link" href="#sec-checklist"><span class="toc-num">07</span>插作檢核表</a>
+    </nav>
+
+    <!-- CHAPTER 1: HISTORY & CONTEXT -->
+    <section id="sec-history" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 01 · 誕生歷史與時代背景</span>
+        <h2 class="section-title">五百年歷史的當代轉化：為何於 1999 年確立立花新風體？</h2>
+        <p class="prose">
+          池坊花道的歷史，某種意義上正是一部「立花」的演化史。從早期的「たてはな（立花）」起，插花雖無法像建築或繪畫般以實體永久保存，卻能綿延五百多年而不墜，關鍵在於每個時代都能誕生出扣動當時人心的花形。學習古典樣式並非只為墨守成規地模仿舊形，而是透過吸收古人的精神與結構，轉化應用於當代創作。
+        </p>
+      </div>
+
+      <div class="diagram-frame">
+        <div class="label-cjk">互動時間軸：點擊比較池坊四種核心花形的結構演變</div>
+        <div class="timeline-track" role="group" aria-label="池坊花形演變時間軸">
+          <button type="button" class="era-btn" aria-pressed="false" data-era="tatehana" onclick="selectEra('tatehana')">
+            <span class="era-year">15世紀起 · 原流</span>
+            <span class="era-name">古典立花（たてはな）</span>
+          </button>
+          <button type="button" class="era-btn" aria-pressed="false" data-era="rikka_sho" onclick="selectEra('rikka_sho')">
+            <span class="era-year">傳統完備 · 型格</span>
+            <span class="era-name">立花正風體</span>
+          </button>
+          <button type="button" class="era-btn" aria-pressed="false" data-era="shoka_shim" onclick="selectEra('shoka_shim')">
+            <span class="era-year">1977年 · 革新先聲</span>
+            <span class="era-name">生花新風體</span>
+          </button>
+          <button type="button" class="era-btn" aria-pressed="true" data-era="rikka_shim" onclick="selectEra('rikka_shim')">
+            <span class="era-year">1999年 · 第45世家元</span>
+            <span class="era-name">立花新風體</span>
+          </button>
+        </div>
+
+        <div id="era-detail" class="washi-card-moss" aria-live="polite">
+          <div class="label-mono" id="era-detail-kicker">1999 · RIKKA SHIMPUTAI</div>
+          <h3 class="sub-title" id="era-detail-title" style="margin-top: var(--space-xs);">立花新風體：保留「立」的結構與精神，解放「役枝」的束縛</h3>
+          <p class="prose" id="era-detail-body" style="margin-top: var(--space-sm);">
+            於生花新風體誕生約 22 年後發表，背後推動力與生花新風體同出一轍。雖不設七枝或九枝的固定役枝與位置，但仍具備「正中線」「前置き」「胴的働き」等立花基本骨幹，水際必須垂直挺立，構築三百六十度的變化球體空間。
+          </p>
+          <div id="era-detail-meta" class="washi-note">核心特徵：無定位置、講求「働き（作用）」、允許有目的性重疊。</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="sub-title" style="margin-bottom: var(--space-md);">催生立花新風體的三大時代要因</h3>
+        <div class="card-grid">
+          <article class="washi-card">
+            <div class="label-mono">CATALYST 01 · 花材</div>
+            <h4 class="sub-title" style="margin-top: var(--space-xs);">花材品種急劇多樣化</h4>
+            <p class="prose-muted" style="margin-top: var(--space-sm);">
+              過往古典花型未曾涵蓋的各式新品種與外來花卉普及（如六出花、滿天星等線條、色塊與質感迥異的材料），舊有固定役枝難以盡展其姿態，促使花道必須以更自由的方式「因材施藝」。
+            </p>
+          </article>
+
+          <article class="washi-card">
+            <div class="label-mono">CATALYST 02 · 住居與照明</div>
+            <h4 class="sub-title" style="margin-top: var(--space-xs);">明亮現代空間與材質轉變</h4>
+            <p class="prose-muted" style="margin-top: var(--space-sm);">
+              人類生活變化最鉅者首推「照明」：從蠟燭微光、電燈泡演進至極為明亮的 LED 燈；居室亦從木、土、和紙轉為混凝土與簡約現代建材。昏暗床之間所需的厚重樣式，轉為需要明朗、通透、能與明亮客廳共存的表現。
+            </p>
+          </article>
+
+          <article class="washi-card">
+            <div class="label-mono">CATALYST 03 · 價值觀與時間</div>
+            <h4 class="sub-title" style="margin-top: var(--space-xs);">個性多元與急促的生活節奏</h4>
+            <p class="prose-muted" style="margin-top: var(--space-sm);">
+              即使使用同一束花，不同作者亦會因個人體悟而插出截然不同的作品；加上時代審美每 5 至 10 年便見更迭。在網絡時代人人分秒必爭之下，無繁複役枝規限的新風體較為親切易手，讓人在有限時間內亦能以更少花材體會創作之樂。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: CREATIVE PHILOSOPHY -->
+    <section id="sec-philosophy" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 02 · 創作理念與美學姿勢</span>
+        <h2 class="section-title">先於形體的「內心觸動」：為每枝植物賦予意義</h2>
+      </div>
+
+      <figure class="monograph-quote">
+        <blockquote>「在形體顯現之前，內心的微小觸動才是起點；主體的誕生，始於感動。」</blockquote>
+        <figcaption>池坊專永宗匠於立花新風體發表時所闡述之創作姿勢</figcaption>
+      </figure>
+
+      <div class="split-layout">
+        <div style="display: grid; gap: var(--space-md);">
+          <h3 class="sub-title">面對花材的三重修養</h3>
+          <p class="prose">
+            當我們看見一朵美麗的花或一枝姿態動人的植物，內心泛起「想辦法把它好好活現於作品之中」的念頭時，創作的起跑線便已劃下。宗匠強調，真正應當「看著花材去決定最適合它的花形」，切忌出於一己私心，硬把植物塞進既定的框架之中。
+          </p>
+          <p class="prose">
+            這份感動必須扎根於「當下（今）」。在漫長的時間序列裡，唯有「此刻」才是最鮮活的現在；我們生活在當代的居室之中，便應創作能讓同時代人感同身受的新表現，並透過草木傳達人類對生命的祝願與希望。
+          </p>
+
+          <div class="washi-card-moss">
+            <div class="label-mono">THREE QUALITIES OF EXPRESSION</div>
+            <p class="prose" style="margin-top: var(--space-xs);">
+              作品整體應流露出三種生命氣息：<strong>明朗感</strong>、<strong>伸びやかさ</strong>（舒展向上、朝向未來的成長感），以及<strong>艶やかさ</strong>（生氣勃勃的鮮活光澤感）。
+            </p>
+          </div>
+        </div>
+
+        <div class="diagram-frame">
+          <div class="label-cjk">理念辨析：點擊切換四組「創作心法 vs 常見誤區」</div>
+          <div class="btn-row" role="group" aria-label="創作心法選擇">
+            <button type="button" class="btn-kiln" aria-pressed="true" data-phil="0" onclick="selectPhilosophy(0)"><span class="btn-code">01</span> 自然之美</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-phil="1" onclick="selectPhilosophy(1)"><span class="btn-code">02</span> 賦予意義</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-phil="2" onclick="selectPhilosophy(2)"><span class="btn-code">03</span> 因花制宜</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-phil="3" onclick="selectPhilosophy(3)"><span class="btn-code">04</span> 當下感動</button>
+          </div>
+
+          <div id="phil-panel" style="display: grid; gap: var(--space-md);" aria-live="polite">
+            <div class="washi-card">
+              <div class="label-mono" style="color: var(--positive);">宗匠所指的正道</div>
+              <h4 class="sub-title" id="phil-title" style="margin-top: var(--space-xs);">「自然之美」優先於「人為雕琢之美」</h4>
+              <p class="prose" id="phil-right" style="margin-top: var(--space-xs);">
+                這裡說的「自然」並非剛從山野剪下、原封不動插進水裡的原生態枝條；有時適度修剪反而更能引出自然神韻。真正的自然美，是透過植物表現出我們「內心所描繪的自然意象」。
+              </p>
+            </div>
+            <div class="washi-card-cinnabar">
+              <div class="label-mono" style="color: var(--tertiary);">需警惕的誤區</div>
+              <p class="prose-muted" id="phil-wrong" style="margin-top: var(--space-xs);">
+                誤以為「自由」或「自然」等於完全不加修飾、將花材隨手堆砌，導致枝葉雜亂而令原有的美感大打折扣。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: CORE STRUCTURE -->
+    <section id="sec-structure" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 03 · 核心空間結構</span>
+        <h2 class="section-title">沒有固定役枝，卻有「正中線」與「變化球體」宇宙</h2>
+        <p class="prose">
+          立花新風體與生花新風體同樣沒有「役枝」（沒有規定的位置與固有名稱），但這絕不代表沒有結構——它依然是「立花」，必須具備立花的基本骨架與「働き（作用）」。其中最關鍵的，便是貫穿中央、絕對不可缺席的「正中線」。
+        </p>
+      </div>
+
+      <div class="split-layout-wide-right">
+        <div class="diagram-frame">
+          <div class="label-cjk">空間解剖圖：點擊右方按鈕或圖層，檢視各部位的作用</div>
+          <div class="diagram-stage">
+            <svg viewBox="0 0 400 440" role="img" aria-label="立花新風體變化球體與正中線空間結構示意圖">
+              <!-- Outer Spherical Universe Boundary -->
+              <g id="layer-sphere" class="svg-layer is-highlighted">
+                <circle cx="200" cy="185" r="142" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-dasharray="5 5"/>
+                <ellipse cx="200" cy="185" rx="142" ry="44" fill="none" stroke="var(--outline-variant)" stroke-width="1.2" stroke-dasharray="3 4"/>
+                <text x="200" y="34" text-anchor="middle" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">360° 變化球體宇宙空間</text>
+                <!-- Centrifugal & centripetal arrows -->
+                <path d="M 105 135 Q 78 160 95 195" fill="none" stroke="var(--secondary)" stroke-width="1.2"/>
+                <path d="M 295 135 Q 322 160 305 195" fill="none" stroke="var(--secondary)" stroke-width="1.2"/>
+                <path d="M 200 185 L 92 125" fill="none" stroke="var(--data-4)" stroke-width="1.5"/>
+                <path d="M 200 185 L 308 118" fill="none" stroke="var(--data-4)" stroke-width="1.5"/>
+                <path d="M 200 185 L 115 248" fill="none" stroke="var(--data-4)" stroke-width="1.5"/>
+                <path d="M 200 185 L 288 242" fill="none" stroke="var(--data-4)" stroke-width="1.5"/>
+              </g>
+
+              <!-- Vase & Mizugiwa -->
+              <g id="layer-base" class="svg-layer is-highlighted">
+                <line x1="60" y1="418" x2="340" y2="418" stroke="var(--outline-variant)" stroke-width="1.5"/>
+                <text x="338" y="434" text-anchor="end" fill="var(--on-surface-variant)" font-size="10" font-family="var(--font-label)">大地／地球（承接力量）</text>
+                <path d="M 155 348 L 245 348 L 232 418 L 168 418 Z" fill="var(--surface-container)" stroke="var(--outline)" stroke-width="1.8"/>
+                <line x1="155" y1="348" x2="245" y2="348" stroke="var(--outline)" stroke-width="2"/>
+                <!-- De (Exit point) -->
+                <line x1="192" y1="322" x2="208" y2="322" stroke="var(--tertiary)" stroke-width="1.5"/>
+                <text x="256" y="326" fill="var(--tertiary)" font-size="11" font-family="var(--font-label)">出（約兩指）</text>
+              </g>
+
+              <!-- Maeoki (Horizontal front base) -->
+              <g id="layer-maeoki" class="svg-layer is-highlighted">
+                <path d="M 130 318 Q 168 328 200 322 Q 232 328 272 316" fill="none" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round"/>
+                <ellipse cx="152" cy="319" rx="18" ry="6" fill="var(--secondary)"/>
+                <ellipse cx="248" cy="318" rx="16" ry="5" fill="var(--secondary)"/>
+                <text x="72" y="324" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">前置き（水平反襯）</text>
+              </g>
+
+              <!-- Do (Lower center volume) -->
+              <g id="layer-do" class="svg-layer is-highlighted">
+                <circle cx="200" cy="264" r="24" fill="var(--surface-container-high)" stroke="var(--outline)" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <circle cx="194" cy="262" r="9" fill="var(--data-4)"/>
+                <circle cx="212" cy="270" r="7" fill="var(--data-4)"/>
+                <text x="236" y="268" fill="var(--on-surface)" font-size="11" font-family="var(--font-label)">下段中心（胴の働き）</text>
+              </g>
+
+              <!-- Ashirai balance (rear / side) -->
+              <g id="layer-balance" class="svg-layer is-highlighted">
+                <path d="M 200 322 Q 170 280 132 230" fill="none" stroke="var(--on-surface-variant)" stroke-width="2" stroke-dasharray="4 3"/>
+                <circle cx="132" cy="230" r="5" fill="var(--on-surface-variant)"/>
+                <path d="M 200 322 Q 235 280 278 210" fill="none" stroke="var(--on-surface-variant)" stroke-width="2"/>
+                <circle cx="278" cy="210" r="6" fill="var(--on-surface-variant)"/>
+                <text x="78" y="218" fill="var(--on-surface-variant)" font-size="10" font-family="var(--font-label)">後方／對側平衡</text>
+              </g>
+
+              <!-- Centerline (Seichusen) -->
+              <g id="layer-centerline" class="svg-layer is-highlighted">
+                <line x1="200" y1="414" x2="200" y2="64" stroke="var(--tertiary)" stroke-width="3"/>
+                <polygon points="200,52 195,66 205,66" fill="var(--tertiary)"/>
+                <!-- Grounding downward force -->
+                <line x1="200" y1="354" x2="200" y2="410" stroke="var(--tertiary)" stroke-width="2" stroke-dasharray="3 2"/>
+                <text x="212" y="78" fill="var(--tertiary)" font-size="12" font-weight="600" font-family="var(--font-label)">正中線（Centerline）</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div style="display: grid; gap: var(--space-md);">
+          <div class="label-cjk">點選以下結構部位，聚焦對應解剖層與功能筆記：</div>
+          <div class="btn-row" role="group" aria-label="立花結構層選擇">
+            <button type="button" class="btn-kiln" aria-pressed="true" data-struct="all" onclick="selectStructure('all')"><span class="btn-code">ALL</span> 整體結構</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-struct="centerline" onclick="selectStructure('centerline')"><span class="btn-code">01</span> 正中線</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-struct="sphere" onclick="selectStructure('sphere')"><span class="btn-code">02</span> 變化球體</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-struct="maeoki" onclick="selectStructure('maeoki')"><span class="btn-code">03</span> 前置き水平底邊</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-struct="do" onclick="selectStructure('do')"><span class="btn-code">04</span> 下段中心・胴</button>
+            <button type="button" class="btn-kiln" aria-pressed="false" data-struct="balance" onclick="selectStructure('balance')"><span class="btn-code">05</span> 平衡補枝</button>
+          </div>
+
+          <div id="struct-detail" class="washi-card" aria-live="polite">
+            <div class="label-mono" id="struct-kicker">STRUCTURAL OVERVIEW</div>
+            <h3 class="sub-title" id="struct-title" style="margin-top: var(--space-xs);">正中線統攝全域，支撐立體的球體空間</h3>
+            <p class="prose" id="struct-body" style="margin-top: var(--space-sm);">
+              所有枝條皆從正中線發生並向外四面八方伸展。立花是一個包含上下、左右、前後景深的「變化球體」，宛如宇宙或地球；正中線一方面分割空間並製造強弱節奏，一方面發揮向心力，將氣的流動拉回中心並直貫大地。
+            </p>
+            <div id="struct-tip" class="washi-note">提示：正中線大多屬於「あしらい（補枝）」而非「主」本身，選材宜緊實細緻，避免過寬阻礙中心空間。</div>
+          </div>
+
+          <div class="washi-card-moss">
+            <div class="label-mono">為何不能沒有正中線？</div>
+            <p class="prose" style="margin-top: var(--space-xs);">
+              在生花新風體中，相同的中心地位由「主」擔當；但在立花新風體裡，這條豎立「立花精神」的中心軸稱為「正中線」。若作品缺少正中線，就如同「沒有頭的人」一樣——雖然人的臉與正中線作用不盡相同，但少了它，整體中心便無法收緊（引き締まらない），散渙無力。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: MATERIALS & SHU / YO -->
+    <section id="sec-materials" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 04 · 選材與對應原則</span>
+        <h2 class="section-title">主・用・あしらい（補枝）：以對比立出焦點，切忌重複喧賓奪主</h2>
+        <p class="prose">
+          「主」與「用」的思維與生花新風體相通——「主」是創作者最想讓人看見的核心焦點（不限一枝，兩枝或三枝皆可，但忌「Too much」堆砌），「用」則是與之呼應對比的搭檔。除此之外，我們需透過「あしらい（補枝）」去補強主用，以及充實、分割空間。
+        </p>
+      </div>
+
+      <!-- Interactive Material Lab -->
+      <div class="diagram-frame">
+        <div class="label-cjk">課堂實例模擬：以「六出花（Alstroemeria）」為「主」時，正中線與中心該如何選材？</div>
+        <div class="split-layout">
+          <div style="display: grid; gap: var(--space-md);">
+            <div class="btn-row" role="group" aria-label="正中線與中心選材情景">
+              <button type="button" class="btn-kiln" aria-pressed="true" data-mat="good" onclick="selectMaterialCase('good')">
+                <span class="btn-code">正法</span> 正中線改用異質細實葉材／線條
+              </button>
+              <button type="button" class="btn-kiln" aria-pressed="false" data-mat="same_center" onclick="selectMaterialCase('same_center')">
+                <span class="btn-code">失焦</span> 正中線重複使用「主」的六出花
+              </button>
+              <button type="button" class="btn-kiln" aria-pressed="false" data-mat="short_center" onclick="selectMaterialCase('short_center')">
+                <span class="btn-code">曖昧</span> 在中心附近短插六出花補量
+              </button>
+            </div>
+
+            <div id="mat-critique" class="washi-card-moss" aria-live="polite">
+              <div class="label-mono" id="mat-kicker">VERDICT · 焦點清晰</div>
+              <h3 class="sub-title" id="mat-title" style="margin-top: var(--space-xs);">不同色彩、形狀與質感的正中線，最能令「主」際立</h3>
+              <p class="prose" id="mat-body" style="margin-top: var(--space-sm);">
+                因為愈接近中心空間愈狹窄，正中線不適合使用葉幅過寬的植物，以免與其他枝條交叉重疊難以插入。改用色調不同、收斂緊實的枝葉或細線作為正中線，能讓「主」（六出花）的色彩與動線在一眼之間清晰躍出。
+              </p>
+            </div>
+
+            <div class="washi-card">
+              <div class="label-mono">水際左右的細微收束</div>
+              <p class="prose-muted" style="margin-top: var(--space-xs);">
+                在左右水際兩側點綴與主、用不同色澤與質感的短小あしらい，能令作品整體輪廓立即緊緻；但切記不要插得太長，否則會像傳統立花的「留（とめ）」。
+              </p>
+            </div>
+          </div>
+
+          <div class="diagram-stage" style="min-height: 320px;">
+            <svg viewBox="0 0 360 320" role="img" aria-label="主花與正中線選材對比示意圖">
+              <line x1="180" y1="20" x2="180" y2="280" stroke="var(--outline-variant)" stroke-dasharray="4 4" stroke-width="1"/>
+              <!-- Vase -->
+              <rect x="145" y="255" width="70" height="45" fill="var(--surface-container)" stroke="var(--outline)" stroke-width="1.8"/>
+              <!-- Shu (Alstroemeria focal on left/upper) -->
+              <path d="M 180 255 Q 150 190 112 128" fill="none" stroke="var(--tertiary)" stroke-width="2.5"/>
+              <circle cx="112" cy="128" r="14" fill="var(--tertiary)"/>
+              <circle cx="128" cy="146" r="10" fill="var(--tertiary)"/>
+              <text x="72" y="108" fill="var(--tertiary)" font-size="12" font-weight="600" font-family="var(--font-label)">主（六出花）</text>
+              <!-- Yo (Contrasting foliage on right) -->
+              <path d="M 180 255 Q 220 220 268 188" fill="none" stroke="var(--secondary)" stroke-width="2.2"/>
+              <ellipse cx="268" cy="188" rx="22" ry="9" transform="rotate(-24 268 188)" fill="var(--secondary)"/>
+              <text x="242" y="168" fill="var(--secondary)" font-size="12" font-weight="600" font-family="var(--font-label)">用（對比葉材）</text>
+
+              <!-- Dynamic Centerline states -->
+              <g id="mat-svg-good" style="display: block;">
+                <line x1="180" y1="255" x2="180" y2="54" stroke="var(--secondary)" stroke-width="2.5"/>
+                <path d="M 180 78 Q 168 62 175 48 Q 186 58 180 78" fill="var(--secondary)"/>
+                <text x="192" y="64" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">緊實異材正中線</text>
+              </g>
+              <g id="mat-svg-same" style="display: none;">
+                <line x1="180" y1="255" x2="180" y2="62" stroke="var(--tertiary)" stroke-width="2.5"/>
+                <circle cx="180" cy="62" r="14" fill="var(--tertiary)"/>
+                <circle cx="188" cy="82" r="10" fill="var(--tertiary)"/>
+                <text x="198" y="62" fill="var(--tertiary)" font-size="11" font-family="var(--font-label)">同材重複：焦點分散</text>
+              </g>
+              <g id="mat-svg-short" style="display: none;">
+                <line x1="180" y1="255" x2="180" y2="64" stroke="var(--secondary)" stroke-width="2"/>
+                <line x1="180" y1="255" x2="156" y2="175" stroke="var(--tertiary)" stroke-width="2"/>
+                <circle cx="156" cy="175" r="11" fill="var(--tertiary)"/>
+                <line x1="180" y1="255" x2="205" y2="188" stroke="var(--tertiary)" stroke-width="2"/>
+                <circle cx="205" cy="188" r="10" fill="var(--tertiary)"/>
+                <text x="192" y="148" fill="var(--tertiary)" font-size="11" font-family="var(--font-label)">似「真・添・受」曖昧</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contrast Diagnostic & Scale -->
+      <div class="split-layout">
+        <div>
+          <h3 class="sub-title" style="margin-bottom: var(--space-sm);">對比乏力時的五項選材診斷</h3>
+          <p class="prose-muted" style="margin-bottom: var(--space-md);">
+            當作品感覺「主與用」呼應薄弱或缺乏變化時，應問自己作品欠缺哪一種元素，而非盲目加花（材料種類不限，但絕非愈多愈好，須精簡至必要分量免得「看不見盡頭」）：
+          </p>
+          <table class="kiln-table">
+            <thead>
+              <tr>
+                <th>欠缺的維度</th>
+                <th>補救思路與作用</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>形態與面積</strong></td>
+                <td>欠缺寬闊的面狀材料，或欠缺能劃破空間的纖細線條？</td>
+              </tr>
+              <tr>
+                <td><strong>色彩與明度</strong></td>
+                <td>整體色調偏淡或單一，需要更鮮明或深沉的色彩壓陣？</td>
+              </tr>
+              <tr>
+                <td><strong>季節感</strong></td>
+                <td>是否缺少能點出當季氣息的花朵、果實（実もの）或葉色？</td>
+              </tr>
+              <tr>
+                <td><strong>質感與水潤度</strong></td>
+                <td>作品顯得乾澀時，加入富光澤或具みずみずしさ（水潤感）的素材。</td>
+              </tr>
+              <tr>
+                <td><strong>節制與留白</strong></td>
+                <td>牢記「Too much」是大忌；留出空間，每朵花才會真正被看見。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="washi-card" style="display: grid; gap: var(--space-md);">
+          <div class="label-mono">SCALE & VISUAL WEIGHT · 1.0M TO 1.2M</div>
+          <h3 class="sub-title">一樣的高度，截然不同的視覺張力</h3>
+          <p class="prose">
+            作品連同花器，整體高度通常以<strong> 1 米前後</strong>為基準。然而，素材的粗細與重量感會直接改變人眼對長度的感知：
+          </p>
+          <div style="display: grid; gap: var(--space-sm);">
+            <div style="padding: var(--space-md); background: var(--background); border: var(--rule-linen);">
+              <div class="label-cjk" style="color: var(--tertiary);">重實花材（例如：百合立於 1.2 米）</div>
+              <p class="prose-muted" style="margin-top: var(--space-xs);">花朵體量大、重心強，拉至 1.2 米往往會顯得過於高聳沉重，視覺上會有「過長」的壓迫感。</p>
+            </div>
+            <div style="padding: var(--space-md); background: var(--background); border: var(--rule-linen);">
+              <div class="label-cjk" style="color: var(--secondary);">纖細輕盈花材（細長枝條立於 1.2 米）</div>
+              <p class="prose-muted" style="margin-top: var(--space-xs);">線條輕巧通透，力量能開放而舒展地向上消散，即使超過 1 米亦顯得修長自然，毫無負擔。</p>
+            </div>
+          </div>
+          <div class="washi-note">選器亦然：初學可先選器再選花；不同器形與高度都會直接牽動整體的呼吸感。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: MIZUGIWA & TWO-FINGER RULE -->
+    <section id="sec-mizugiwa" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 05 · 水際精神與兩指基準</span>
+        <h2 class="section-title">生花是「いける（插）」，立花是「たてる（立）」：垂直水際與兩指高度</h2>
+        <p class="prose">
+          許多初學者容易將生花新風體與立花新風體混淆，兩者最大的根本差異就在於「水際（枝條出水面的姿態）」。生花表現大樹順應太陽陰陽向上傾側生長，故水際微斜；立花則必須「垂直直立」，展現「立（たてる）」的精神性。
+        </p>
+      </div>
+
+      <!-- Interactive Comparison & Two-Finger Simulator -->
+      <div class="diagram-frame">
+        <div class="split-layout">
+          <div style="display: grid; gap: var(--space-md);">
+            <div class="label-cjk">模式切換：比較水際姿態與支撐力學</div>
+            <div class="btn-row" role="group" aria-label="水際模式選擇">
+              <button type="button" class="btn-kiln" aria-pressed="false" data-mizu="shoka" onclick="selectMizugiwa('shoka')"><span class="btn-code">生花</span> 微傾的生命姿態</button>
+              <button type="button" class="btn-kiln" aria-pressed="true" data-mizu="rikka" onclick="selectMizugiwa('rikka')"><span class="btn-code">立花</span> 90° 垂直直立水際</button>
+              <button type="button" class="btn-kiln" aria-pressed="false" data-mizu="komiwara" onclick="selectMizugiwa('komiwara')"><span class="btn-code">力學</span> こみわら直達器底</button>
+            </div>
+
+            <div id="mizu-info" class="washi-card" aria-live="polite">
+              <div class="label-mono" id="mizu-kicker">RIKKA VERTICALITY</div>
+              <h3 class="sub-title" id="mizu-title" style="margin-top: var(--space-xs);">先作第一枝的「出」，水際壓低至約「兩指」高</h3>
+              <p class="prose" id="mizu-body" style="margin-top: var(--space-sm);">
+                選用口緣水平的花器後，水際垂直高度以「兩隻手指（指2本）」為不敗基準（正風體則再低一半或以下；花大可略高、花小可略低）。第一枝必先確立正中線的「出（で）」。因全部枝條皆需展開空間，枝材需用鐵絲（ワイヤー）做「手」，並將枝腳筆直插實。
+              </p>
+            </div>
+
+            <div class="control-group" style="padding: var(--space-md); background: var(--background); border: var(--rule-linen);">
+              <label for="slider-mizugiwa" class="control-label">
+                <span>實驗：調整水際與「出」的起始高度</span>
+                <span id="slider-mizugiwa-readout" style="color: var(--tertiary); font-weight: 600;">約兩指高（標準基準）</span>
+              </label>
+              <input id="slider-mizugiwa" type="range" class="kiln-slider" min="1" max="3" step="1" value="1" oninput="updateMizugiwaHeight(this.value)">
+              <p id="slider-mizugiwa-note" class="prose-muted" style="font-size: 0.875rem;">
+                壓低「出」至兩指高度，能令從「出」到枝梢的視覺距離顯得更修長開闊；其餘補枝即插於正中線與水際這兩指寬的區間內。切記正中線不可過短，免得被前方補枝遮蔽。
+              </p>
+            </div>
+          </div>
+
+          <div class="diagram-stage">
+            <svg viewBox="0 0 380 360" role="img" aria-label="水際垂直直立與兩指基準力學示意圖">
+              <!-- Ground / Vase outline -->
+              <path d="M 110 230 L 270 230 L 250 336 L 130 336 Z" fill="var(--surface-container)" stroke="var(--outline)" stroke-width="2"/>
+              <line x1="110" y1="230" x2="270" y2="230" stroke="var(--outline)" stroke-width="2"/>
+              <line x1="70" y1="336" x2="310" y2="336" stroke="var(--outline-variant)" stroke-width="1.5"/>
+
+              <!-- Komiwara bundle (visible especially in komiwara mode, subtly in rikka) -->
+              <g id="mizu-svg-komiwara" style="opacity: 0.35;">
+                <rect x="166" y="230" width="48" height="104" fill="var(--data-4)" opacity="0.35" stroke="var(--data-4)" stroke-width="1.2"/>
+                <line x1="176" y1="230" x2="176" y2="334" stroke="var(--data-4)" stroke-width="1"/>
+                <line x1="190" y1="230" x2="190" y2="334" stroke="var(--data-4)" stroke-width="1"/>
+                <line x1="204" y1="230" x2="204" y2="334" stroke="var(--data-4)" stroke-width="1"/>
+                <text x="278" y="286" fill="var(--data-4)" font-size="11" font-family="var(--font-label)">こみわら直貫器底</text>
+                <line x1="216" y1="282" x2="274" y2="282" stroke="var(--data-4)" stroke-width="1"/>
+              </g>
+
+              <!-- Shoka mode: tilted mizugiwa -->
+              <g id="mizu-svg-shoka" style="display: none;">
+                <path d="M 190 230 Q 174 175 186 72" fill="none" stroke="var(--secondary)" stroke-width="3.5"/>
+                <path d="M 183 185 Q 225 162 252 128" fill="none" stroke="var(--secondary)" stroke-width="2.2"/>
+                <path d="M 181 172 Q 140 148 118 116" fill="none" stroke="var(--tertiary)" stroke-width="2.2"/>
+                <line x1="190" y1="230" x2="190" y2="140" stroke="var(--outline-variant)" stroke-dasharray="4 3" stroke-width="1.2"/>
+                <text x="198" y="152" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">微傾生長姿態（向陽）</text>
+              </g>
+
+              <!-- Rikka mode: strictly vertical mizugiwa + adjustable De -->
+              <g id="mizu-svg-rikka" style="display: block;">
+                <!-- Vertical bundle up to De height -->
+                <line id="rikka-stem-core" x1="190" y1="334" x2="190" y2="42" stroke="var(--tertiary)" stroke-width="3.5"/>
+                <!-- Horizontal marker for De -->
+                <line id="rikka-de-line" x1="130" y1="192" x2="250" y2="192" stroke="var(--tertiary)" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <!-- Two-finger bracket -->
+                <line x1="136" y1="230" x2="136" y2="192" id="rikka-finger-bar" stroke="var(--outline)" stroke-width="1.8"/>
+                <text id="rikka-finger-label" x="72" y="214" fill="var(--on-surface)" font-size="11" font-family="var(--font-label)">約兩指水際</text>
+                <!-- Branching out from De point -->
+                <path id="rikka-branch-left" d="M 190 192 Q 160 156 105 112" fill="none" stroke="var(--secondary)" stroke-width="2.4"/>
+                <path id="rikka-branch-right" d="M 190 192 Q 222 152 276 118" fill="none" stroke="var(--secondary)" stroke-width="2.4"/>
+                <path id="rikka-branch-front" d="M 190 212 Q 210 194 236 184" fill="none" stroke="var(--data-4)" stroke-width="2"/>
+                <!-- Vertical upper span indicator -->
+                <line id="rikka-span-bar" x1="258" y1="192" x2="258" y2="44" stroke="var(--secondary)" stroke-width="1.5"/>
+                <text id="rikka-span-label" x="266" y="118" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">枝梢伸展空間</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6: PURPOSEFUL OVERLAPPING -->
+    <section id="sec-overlap" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 06 · 立花特有の表現技法</span>
+        <h2 class="section-title">有目的性的「重疊（重ね）」：透過前後遮映改寫花朵的表情</h2>
+        <p class="prose">
+          在生花新風體的規範中，枝葉交叉（交差／クロス）屬於忌諱；然而在立花新風體裡，「重疊」卻是極具詩意的合法表現。透過有意識地將輕盈或異質素材重疊於主花或葉片之前，能為花朵披上一層薄紗般的景深，呈現單獨擺放時絕無僅有的表情變化。
+        </p>
+      </div>
+
+      <div class="diagram-frame">
+        <div class="split-layout">
+          <div style="display: grid; gap: var(--space-md);">
+            <div class="label-cjk">比較三種處理手法：觀察視覺景深與質感差異</div>
+            <div class="btn-row" role="group" aria-label="重疊手法比較">
+              <button type="button" class="btn-kiln" aria-pressed="false" data-ov="shoka_rule" onclick="selectOverlap('shoka_rule')"><span class="btn-code">生花</span> 避開交叉重疊</button>
+              <button type="button" class="btn-kiln" aria-pressed="false" data-ov="leaf_layer" onclick="selectOverlap('leaf_layer')"><span class="btn-code">立花 A</span> 葉前襯葉顯層次</button>
+              <button type="button" class="btn-kiln" aria-pressed="true" data-ov="flower_veil" onclick="selectOverlap('flower_veil')"><span class="btn-code">立花 B</span> 花前覆滿天星</button>
+            </div>
+
+            <div id="ov-detail" class="washi-card-moss" aria-live="polite">
+              <div class="label-mono" id="ov-kicker">PURPOSEFUL VEIL · 滿天星疊映</div>
+              <h3 class="sub-title" id="ov-title" style="margin-top: var(--space-xs);">在主花前方覆以細碎花材，柔和並豐富花朵的神情</h3>
+              <p class="prose" id="ov-body" style="margin-top: var(--space-sm);">
+                例如於主角花朵的前方，輕輕疊上一抹如滿天星（かすみそう）般細碎通透的白色小花。那份若隱若現的遮映與空氣感，能即時改寫主花的表情，創造出唯獨立花新風體才能成立的立體層次美感。
+              </p>
+            </div>
+          </div>
+
+          <div class="diagram-stage" style="min-height: 290px;">
+            <svg viewBox="0 0 360 280" role="img" aria-label="生花避讓交叉與立花有目的重疊視覺對照圖">
+              <!-- Base focal flower / leaf -->
+              <g id="ov-svg-shoka" style="display: none;">
+                <line x1="120" y1="245" x2="120" y2="85" stroke="var(--secondary)" stroke-width="2.5"/>
+                <circle cx="120" cy="85" r="26" fill="var(--tertiary)"/>
+                <line x1="240" y1="245" x2="240" y2="115" stroke="var(--secondary)" stroke-width="2.5"/>
+                <ellipse cx="240" cy="115" rx="34" ry="18" fill="var(--secondary)"/>
+                <text x="180" y="266" text-anchor="middle" fill="var(--on-surface-variant)" font-size="11" font-family="var(--font-label)">各自獨立・互不交叉（生花規範）</text>
+              </g>
+
+              <g id="ov-svg-leaf" style="display: none;">
+                <ellipse cx="170" cy="135" rx="68" ry="42" transform="rotate(-12 170 135)" fill="var(--secondary)"/>
+                <ellipse cx="206" cy="152" rx="46" ry="22" transform="rotate(18 206 152)" fill="var(--data-4)" opacity="0.88" stroke="var(--background)" stroke-width="2"/>
+                <path d="M 155 152 L 248 164" stroke="var(--background)" stroke-width="1.2"/>
+                <text x="180" y="266" text-anchor="middle" fill="var(--secondary)" font-size="11" font-family="var(--font-label)">前後雙葉交疊・呈現透視與濃淡對比</text>
+              </g>
+
+              <g id="ov-svg-veil" style="display: block;">
+                <!-- Main focal bloom behind -->
+                <line x1="180" y1="246" x2="180" y2="125" stroke="var(--secondary)" stroke-width="2.8"/>
+                <circle cx="180" cy="120" r="44" fill="var(--tertiary)"/>
+                <circle cx="180" cy="120" r="18" fill="var(--data-4)" opacity="0.45"/>
+                <!-- Delicate baby's breath overlay in front -->
+                <path d="M 180 246 Q 152 175 138 110 M 156 168 Q 195 140 226 104 M 168 152 Q 192 126 212 146" fill="none" stroke="var(--on-surface-variant)" stroke-width="1.3"/>
+                <circle cx="138" cy="108" r="7" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <circle cx="164" cy="96" r="6" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <circle cx="192" cy="112" r="8" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <circle cx="222" cy="104" r="6" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <circle cx="208" cy="144" r="7" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <circle cx="152" cy="136" r="6" fill="var(--background)" stroke="var(--outline)" stroke-width="1"/>
+                <text x="180" y="266" text-anchor="middle" fill="var(--tertiary)" font-size="11" font-family="var(--font-label)">滿天星輕覆主花前・創造空氣感與表情變化</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 7: INTERACTIVE STUDIO CHECKLIST -->
+    <section id="sec-checklist" class="chapter">
+      <div class="chapter-header">
+        <span class="label-mono">CHAPTER 07 · 實踐自檢</span>
+        <h2 class="section-title">下水前與插作中的六步檢核清單</h2>
+        <p class="prose-muted">於工作台插作立花新風體時，可按以下步驟逐項點選核對，確保作品兼備自由度與立花本色。</p>
+      </div>
+
+      <div class="washi-card" style="display: grid; gap: var(--space-md);">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-sm);">
+          <span class="label-cjk">完成進度檢核</span>
+          <span id="checklist-status" class="label-mono" style="color: var(--tertiary);">0 / 6 COMPLETED</span>
+        </div>
+        <div class="progress-bar-wrap" aria-hidden="true">
+          <div id="checklist-progress" class="progress-bar-fill"></div>
+        </div>
+
+        <div class="checklist-grid" role="group" aria-label="立花新風體插作檢核項目">
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>01 · 確立「感動」與「主」</strong>：已決定最想突出的主角花材，並為每枝植物賦予清晰的作用，而非堆砌材料。</span>
+          </button>
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>02 · 選用口緣水平花器與鐵絲打底</strong>：準備好水平器口，並為需要塑形的枝條以鐵絲作「手」，枝腳筆直插實於こみわら或劍山。</span>
+          </button>
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>03 · 第1枝先作「出」，水際約兩指高</strong>：確認水際垂直挺立無傾側，壓低基部以拉長枝梢張力，且正中線有足夠高度不被遮蔽。</span>
+          </button>
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>04 · 正中線不重複「主」之材料</strong>：正中線選用緊實細緻的異質素材，避免與「主」重複而削弱焦點或像在插正風體。</span>
+          </button>
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>05 · 檢視「變化球體」與前後景深</strong>：運用前置き（水平底邊）、胴的働き與後方／左右補枝平衡重心，於兩指區間內巧妙安插補枝。</span>
+          </button>
+          <button type="button" class="check-item" role="checkbox" aria-checked="false" onclick="toggleCheck(this)">
+            <span class="check-box" aria-hidden="true"></span>
+            <span><strong>06 · 審視整體對比、重疊與成長感</strong>：高度約 1–1.2 米並符合視覺輕重，適當運用前後重疊豐富表情，展現明朗、舒展與鮮活之生命感。</span>
+          </button>
+        </div>
+
+        <div class="btn-row" style="justify-content: flex-end;">
+          <button type="button" class="btn-kiln" id="reset-check-btn" onclick="resetChecklist(this)">重設檢核表</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOPHON / SOURCES -->
+    <footer class="colophon">
+      <div class="label-mono">SOURCE NOTES · 講義整理說明</div>
+      <p style="margin: 0;">
+        本學習導覽網站根據池坊花道關於「立花新風體（1999年確立）」之兩份課堂講授筆記整理而成，涵蓋家元專永宗匠之創作理念、正中線與球體空間構造、主用補枝選材原則、水際垂直基準與こみわら支撐力學，以及有目的性重疊技法。
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Data stores using backtick template literals for safe string handling
+    const eraData = {
+      tatehana: {
+        kicker: `15TH CENTURY · TATEHANA`,
+        title: `古典立花（たてはな）：五百年池坊歷史的原點`,
+        body: `立花雖無法以實體留存五百年，但其面對草木與天地的精神流傳至今。池坊的歷史某種意義上正是一部立花的歷史，每一代都從中吸收養分並轉化出屬於當代的樣貌。`,
+        meta: `核心特徵：垂直「立」之精神原點，順應時代不斷演變。`
+      },
+      rikka_sho: {
+        kicker: `TRADITIONAL · RIKKA SHOFUTAI`,
+        title: `立花正風體：嚴謹的役枝法度與固定位置`,
+        body: `具備真、副、控、流、胴、前置等明確役枝名稱與固定位置，水際壓得更低（約新風體兩指基準之一半或以下），以嚴整宏大的構圖象徵自然宇宙秩序。`,
+        meta: `核心特徵：有明確「役枝」與「定位置」，是現代創作的重要參照基礎。`
+      },
+      shoka_shim: {
+        kicker: `1977 · SHOKA SHIMPUTAI`,
+        title: `生花新風體：無役枝規限，水際順應陽光微傾`,
+        body: `於 1977 年（比立花新風體早約 22 年）發表，解放了正風體的役枝限制，以「主」「用」「あしらい」表現植物於大地向陽生長的姿態，水際帶有微妙傾角，且嚴忌枝葉交叉重疊。`,
+        meta: `核心特徵：水際微傾「いける（插）」、忌交叉、材料可極簡（甚至少至3枝）。`
+      },
+      rikka_shim: {
+        kicker: `1999 · RIKKA SHIMPUTAI`,
+        title: `立花新風體：保留「立」的結構與精神，解放「役枝」的束縛`,
+        body: `於生花新風體誕生約 22 年後由第45世家元發表。雖不設固定役枝與位置，但仍具備「正中線」「前置き」「胴的働き」等立花基本骨幹，水際必須垂直挺立，構築三百六十度的變化球體空間。`,
+        meta: `核心特徵：無定位置、講求「働き（作用）」、允許有目的性重疊。`
+      }
+    };
+
+    const philData = [
+      {
+        title: `「自然之美」優先於「人為雕琢之美」`,
+        right: `這裡說的「自然」並非剛從山野剪下、原封不動插進水裡的原生態枝條；有時適度修剪反而更能引出自然神韻。真正的自然美，是透過植物表現出我們「內心所描繪的自然意象」。`,
+        wrong: `誤以為「自由」或「自然」等於完全不加修飾、將花材隨手堆砌，導致枝葉雜亂而令原有的美感大打折扣。`
+      },
+      {
+        title: `凝視素材本質，為每枝花賦予明確意義`,
+        right: `正因新風體沒有既定「役枝」格式，一切由自己決定，故每一枝拿上手插進花器的植物，都必須清楚「為何要在此處加入它」，賦予其獨特的作用與角色。`,
+        wrong: `只求填滿空位或湊夠數量，導致枝條失去與「主」「用」之間的對話關係。`
+      },
+      {
+        title: `先觀察花材生命力，再決定花形表現`,
+        right: `宗匠指出，理想中應該看著花材去思考「用哪種花形最能活現這朵花」，讓植物本身的個性與姿態帶領創作方向。`,
+        wrong: `出於個人私心，先死守某個固定造型，再強行把花材修剪或扭曲塞進既定框框之內。`
+      },
+      {
+        title: `捕捉「今（此刻）」的感動，引起當代人共鳴`,
+        right: `我們正活在現代居室與當下的時間流之中，要從當下最新鮮的感動出發，創作出能讓此時此地的觀者自然感受並產生共鳴的鮮活作品。`,
+        wrong: `一味沉溺於重現古代陳式，忽略現代空間明亮簡約的環境條件與當代人的視覺節奏。`
+      }
+    ];
+
+    const structData = {
+      all: {
+        kicker: `STRUCTURAL OVERVIEW`,
+        title: `正中線統攝全域，支撐立體的球體空間`,
+        body: `所有枝條皆從正中線發生並向外四面八方伸展。立花是一個包含上下、左右、前後景深的「變化球體」，宛如宇宙或地球；正中線一方面分割空間並製造強弱節奏，一方面發揮向心力，將氣的流動拉回中心並直貫大地。`,
+        tip: `提示：正中線大多屬於「あしらい（補枝）」而非「主」本身，選材宜緊實細緻，避免過寬阻礙中心空間。`,
+        layers: [`layer-sphere`, `layer-base`, `layer-maeoki`, `layer-do`, `layer-balance`, `layer-centerline`]
+      },
+      centerline: {
+        kicker: `01 · SEICHUSEN / CENTERLINE`,
+        title: `正中線：不可缺席的中心軸線與向心力`,
+        body: `等同於立花中的縱軸精神。所有枝條皆於此線上發生；若缺少正中線，作品便如「沒有頭的人」，中心無法收緊。它將 360 度外擴的枝氣重新拉回中心，並把立起的力量從花器底穩穩傳導至大地。`,
+        tip: `選材注意：中心空間狹窄，正中線忌用寬幅材料，亦不要使用與「主」相同的花材。`,
+        layers: [`layer-centerline`, `layer-base`]
+      },
+      sphere: {
+        kicker: `02 · SPHERICAL UNIVERSE`,
+        title: `變化球體：360° 放射與「氣」的流動空間`,
+        body: `立花不是單純的平面，而是一個處於流動中的變化球體，猶如一個宇宙或地球。枝條從中心向四周 360 度舒展，正中線同時為這個球體進行空間分割與強弱節奏配置，令內涵更為充實。`,
+        tip: `觀察角度：插作時須兼顧高度、橫幅與前後景深，讓作品在立體空間中呼吸。`,
+        layers: [`layer-sphere`, `layer-centerline`]
+      },
+      maeoki: {
+        kicker: `03 · MAEOKI / HORIZONTAL BASE`,
+        title: `前置き：水平底邊反襯垂直水際`,
+        body: `作品最底端相當於立花正風體「前置」的位置。將此處處理成水平線條，能夠強烈反襯中央筆直挺立的水際，並為整個作品提供穩固的視覺支撐。所用材料種類、長度與前伸程度皆自由，視球體的闊度與前後空間而定。`,
+        tip: `技法要點：水平的前置き與垂直的水際形成剛柔並濟的幾何對比。`,
+        layers: [`layer-maeoki`, `layer-base`]
+      },
+      do: {
+        kicker: `04 · DO / LOWER CENTER`,
+        title: `下段中心部（胴的働き）：收緊重心、推出立體感`,
+        body: `作品下段的中心位置承擔著正風體「胴」的作用：一方面把整體的重心緊緊收聚在中心，另一方面向前方營造立體空間。若作品中心顯得扁平單薄，便須運用具立體感的補枝向前襯出。`,
+        tip: `觀察角度：正面視線集中於此，切忌悶塞或完全扁平貼壁。`,
+        layers: [`layer-do`, `layer-base`]
+      },
+      balance: {
+        kicker: `05 · BALANCE & DEPTH`,
+        title: `平衡補枝：修正傾側，營造神輿般的景深`,
+        body: `當「主」與「用」過度向單側傾斜，或前方份量過重時，必須在對側或後方補入對應的あしらい以取得動態平衡；這亦如同日本祭典的神輿般，賦予作品前後縱深與多面觀賞的立體感。`,
+        tip: `檢查方法：完成初步架構後，應退後並略微側看整體重心是否傾倒。`,
+        layers: [`layer-balance`, `layer-sphere`]
+      }
+    };
+
+    const matData = {
+      good: {
+        kicker: `VERDICT · 焦點清晰（推薦）`,
+        title: `不同色彩、形狀與質感的正中線，最能令「主」際立`,
+        body: `因為愈接近中心空間愈狹窄，正中線不適合使用葉幅過寬的植物，以免與其他枝條交叉重疊難以插入。改用色調不同、收斂緊實的枝葉或細線作為正中線，能讓「主」（六出花）的色彩與動線在一眼之間清晰躍出。`,
+        showId: `mat-svg-good`,
+        cardClass: `washi-card-moss`
+      },
+      same_center: {
+        kicker: `VERDICT · 焦點分散（應避免）`,
+        title: `正中線重複使用「主」的六出花，會削弱主角印象`,
+        body: `如果把原本作為「主」的六出花同時用作正中線，觀者的視線會在上下之間被分散與分割，令原本最想突出的「主」變得軟弱無力。正中線原則上應選擇不同的材料。`,
+        showId: `mat-svg-same`,
+        cardClass: `washi-card-cinnabar`
+      },
+      short_center: {
+        kicker: `VERDICT · 意圖模糊（宜謹慎）`,
+        title: `於中心附近短插相同主花，容易看似傳統生花「真・添・受」`,
+        body: `雖然新風體並無硬性禁止，但若只是想增加六出花份量而在中心附近短插同材，觀者容易誤判成「真・添・受」等傳統三才格調，令新風體原本要傳達的自由焦點與空間動線變得曖昧不明。`,
+        showId: `mat-svg-short`,
+        cardClass: `washi-card-cinnabar`
+      }
+    };
+
+    const mizuData = {
+      shoka: {
+        kicker: `SHOKA SHIMPUTAI · いける（插）`,
+        title: `生花新風體：順應陽光的微傾生長姿態`,
+        body: `生花象徵樹木扎根大地、受大氣與陽光（陰陽）影響而向上生長，因此水際必然帶有微妙傾角（唯獨竹子等本身筆直生長之植物例外）。若生花的「真」完全筆直，反而顯得靜止而缺乏生命力。`,
+        show: `shoka`
+      },
+      rikka: {
+        kicker: `RIKKA SHIMPUTAI · たてる（立）`,
+        title: `先作第一枝的「出」，水際壓低至約「兩指」高`,
+        body: `選用口緣水平的花器後，水際垂直高度以「兩隻手指（指2本）」為不敗基準（正風體則再低一半或以下；花大可略高、花小可略低）。第一枝必先確立正中線的「出（で）」。因全部枝條皆需展開空間，枝材需用鐵絲（ワイヤー）做「手」，並將枝腳筆直插實。`,
+        show: `rikka`
+      },
+      komiwara: {
+        kicker: `STRUCTURAL MECHANICS · こみわら（稻草束）`,
+        title: `為何能穩穩「立」起沉重松枝？力貫器底的奧秘`,
+        body: `傳統使用紮成束的稻草「こみわら」（現代亦有用捆紮吸管），劍山是在表面支撐，而こみわら則讓粗重松枝的枝腳筆直貫穿束體、直抵花器底部，將重量傳導至器底與大地。插拔時自然產生的垂直力亦向上延伸，令「立」的精神倍加鮮明。`,
+        show: `komiwara`
+      }
+    };
+
+    const overlapData = {
+      shoka_rule: {
+        kicker: `SHOKA NORM · 禁止交叉`,
+        title: `生花新風體：枝葉互不交叉重疊`,
+        body: `在生花新風體的表達中，重視一枝一葉各自獨立舒展的空間感，枝條或葉片互相交叉（クロス）屬於忌諱，因此素材之間保持各自清晰的位置關係。`,
+        showId: `ov-svg-shoka`,
+        cardClass: `washi-card`
+      },
+      leaf_layer: {
+        kicker: `RIKKA TECHNIQUE · 葉片重疊`,
+        title: `以大葉襯底、前葉交疊，透視出濃淡與質感`,
+        body: `立花新風體刻意容許並善用前後重疊。例如後方襯托闊大葉片，前方疊上另一片形態或脈絡不同的葉子，透過部分遮映與重疊，產生平面插法難以企及的深度與構成張力。`,
+        showId: `ov-svg-leaf`,
+        cardClass: `washi-card-moss`
+      },
+      flower_veil: {
+        kicker: `PURPOSEFUL VEIL · 滿天星疊映`,
+        title: `在主花前方覆以細碎花材，柔和並豐富花朵的神情`,
+        body: `例如於主角花朵的前方，輕輕疊上一抹如滿天星（かすみそう）般細碎通透的白色小花。那份若隱若現的遮映與空氣感，能即時改寫主花的表情，創造出唯獨立花新風體才能成立的立體層次美感。`,
+        showId: `ov-svg-veil`,
+        cardClass: `washi-card-moss`
+      }
+    };
+
+    function selectEra(key) {
+      const data = eraData[key];
+      if (!data) return;
+
+      const btns = document.querySelectorAll('.era-btn');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-era') === key ? 'true' : 'false');
+      });
+
+      const kicker = document.getElementById('era-detail-kicker');
+      const title = document.getElementById('era-detail-title');
+      const body = document.getElementById('era-detail-body');
+      const meta = document.getElementById('era-detail-meta');
+      if (kicker) kicker.textContent = data.kicker;
+      if (title) title.textContent = data.title;
+      if (body) body.textContent = data.body;
+      if (meta) meta.textContent = data.meta;
+    }
+
+    function selectPhilosophy(index) {
+      const item = philData[index];
+      if (!item) return;
+
+      const btns = document.querySelectorAll('[data-phil]');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', Number(btn.getAttribute('data-phil')) === index ? 'true' : 'false');
+      });
+
+      const title = document.getElementById('phil-title');
+      const right = document.getElementById('phil-right');
+      const wrong = document.getElementById('phil-wrong');
+      if (title) title.textContent = item.title;
+      if (right) right.textContent = item.right;
+      if (wrong) wrong.textContent = item.wrong;
+    }
+
+    function selectStructure(key) {
+      const data = structData[key];
+      if (!data) return;
+
+      const btns = document.querySelectorAll('[data-struct]');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-struct') === key ? 'true' : 'false');
+      });
+
+      const kicker = document.getElementById('struct-kicker');
+      const title = document.getElementById('struct-title');
+      const body = document.getElementById('struct-body');
+      const tip = document.getElementById('struct-tip');
+      if (kicker) kicker.textContent = data.kicker;
+      if (title) title.textContent = data.title;
+      if (body) body.textContent = data.body;
+      if (tip) tip.textContent = data.tip;
+
+      const allLayers = [`layer-sphere`, `layer-base`, `layer-maeoki`, `layer-do`, `layer-balance`, `layer-centerline`];
+      allLayers.forEach(function (layerId) {
+        const el = document.getElementById(layerId);
+        if (!el) return;
+        if (data.layers.indexOf(layerId) !== -1) {
+          el.classList.remove('is-dimmed');
+          el.classList.add('is-highlighted');
+        } else {
+          el.classList.remove('is-highlighted');
+          el.classList.add('is-dimmed');
+        }
+      });
+    }
+
+    function selectMaterialCase(key) {
+      const data = matData[key];
+      if (!data) return;
+
+      const btns = document.querySelectorAll('[data-mat]');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-mat') === key ? 'true' : 'false');
+      });
+
+      const critique = document.getElementById('mat-critique');
+      const kicker = document.getElementById('mat-kicker');
+      const title = document.getElementById('mat-title');
+      const body = document.getElementById('mat-body');
+
+      if (critique) critique.className = data.cardClass;
+      if (kicker) kicker.textContent = data.kicker;
+      if (title) title.textContent = data.title;
+      if (body) body.textContent = data.body;
+
+      const svgIds = [`mat-svg-good`, `mat-svg-same`, `mat-svg-short`];
+      svgIds.forEach(function (id) {
+        const g = document.getElementById(id);
+        if (g) g.style.display = (id === data.showId) ? 'block' : 'none';
+      });
+    }
+
+    function selectMizugiwa(key) {
+      const data = mizuData[key];
+      if (!data) return;
+
+      const btns = document.querySelectorAll('[data-mizu]');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-mizu') === key ? 'true' : 'false');
+      });
+
+      const kicker = document.getElementById('mizu-kicker');
+      const title = document.getElementById('mizu-title');
+      const body = document.getElementById('mizu-body');
+      if (kicker) kicker.textContent = data.kicker;
+      if (title) title.textContent = data.title;
+      if (body) body.textContent = data.body;
+
+      const shokaG = document.getElementById('mizu-svg-shoka');
+      const rikkaG = document.getElementById('mizu-svg-rikka');
+      const komiG = document.getElementById('mizu-svg-komiwara');
+
+      if (data.show === `shoka`) {
+        if (shokaG) shokaG.style.display = 'block';
+        if (rikkaG) rikkaG.style.display = 'none';
+        if (komiG) komiG.style.opacity = '0.15';
+      } else if (data.show === `rikka`) {
+        if (shokaG) shokaG.style.display = 'none';
+        if (rikkaG) rikkaG.style.display = 'block';
+        if (komiG) komiG.style.opacity = '0.35';
+      } else {
+        if (shokaG) shokaG.style.display = 'none';
+        if (rikkaG) rikkaG.style.display = 'block';
+        if (komiG) komiG.style.opacity = '1';
+      }
+    }
+
+    function updateMizugiwaHeight(val) {
+      const level = Number(val);
+      const readout = document.getElementById('slider-mizugiwa-readout');
+      const note = document.getElementById('slider-mizugiwa-note');
+      const deLine = document.getElementById('rikka-de-line');
+      const fingerBar = document.getElementById('rikka-finger-bar');
+      const fingerLabel = document.getElementById('rikka-finger-label');
+      const spanBar = document.getElementById('rikka-span-bar');
+      const spanLabel = document.getElementById('rikka-span-label');
+      const bLeft = document.getElementById('rikka-branch-left');
+      const bRight = document.getElementById('rikka-branch-right');
+
+      // Switch diagram to rikka automatically if slider is moved
+      selectMizugiwa('rikka');
+
+      let deY = 192;
+      if (level === 1) {
+        deY = 192;
+        if (readout) readout.textContent = `約兩指高（標準基準）`;
+        if (note) note.textContent = `壓低「出」至兩指高度，能令從「出」到枝梢的視覺距離顯得更修長開闊；其餘補枝即插於正中線與水際這兩指寬的區間內。切記正中線不可過短，免得被前方補枝遮蔽。`;
+        if (fingerLabel) fingerLabel.textContent = `約兩指水際`;
+        if (spanLabel) spanLabel.textContent = `枝梢空間修長開闊`;
+      } else if (level === 2) {
+        deY = 160;
+        if (readout) readout.textContent = `偏高水際（大花材適用）`;
+        if (note) note.textContent = `「兩指」並非死板規定；若選用花朵較大的花材，水際可依視覺平衡略微提高，但仍須維持基部緊湊與垂直挺立。`;
+        if (fingerLabel) fingerLabel.textContent = `略高水際`;
+        if (spanLabel) spanLabel.textContent = `枝梢空間適中`;
+      } else {
+        deY = 124;
+        if (readout) readout.textContent = `過高水際（壓縮枝梢張力）`;
+        if (note) note.textContent = `若水際與「出」拉得過高（宛如用極高花器伸長水際），從「出」到枝梢的伸展距離反而顯得短促局促，失去了「壓低水際以顯修長」的空間張力。`;
+        if (fingerLabel) fingerLabel.textContent = `過高水際`;
+        if (spanLabel) spanLabel.textContent = `枝梢距離被壓縮`;
+      }
+
+      if (deLine) {
+        deLine.setAttribute('y1', String(deY));
+        deLine.setAttribute('y2', String(deY));
+      }
+      if (fingerBar) {
+        fingerBar.setAttribute('y2', String(deY));
+      }
+      if (fingerLabel) {
+        fingerLabel.setAttribute('y', String(Math.round((230 + deY) / 2) + 4));
+      }
+      if (spanBar) {
+        spanBar.setAttribute('y1', String(deY));
+      }
+      if (spanLabel) {
+        spanLabel.setAttribute('y', String(Math.round((44 + deY) / 2)));
+      }
+      if (bLeft) {
+        bLeft.setAttribute('d', `M 190 ` + deY + ` Q 156 ` + (deY - 36) + ` 105 ` + (deY - 80));
+      }
+      if (bRight) {
+        bRight.setAttribute('d', `M 190 ` + deY + ` Q 224 ` + (deY - 40) + ` 276 ` + (deY - 74));
+      }
+    }
+
+    function selectOverlap(key) {
+      const data = overlapData[key];
+      if (!data) return;
+
+      const btns = document.querySelectorAll('[data-ov]');
+      btns.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-ov') === key ? 'true' : 'false');
+      });
+
+      const detail = document.getElementById('ov-detail');
+      const kicker = document.getElementById('ov-kicker');
+      const title = document.getElementById('ov-title');
+      const body = document.getElementById('ov-body');
+      if (detail) detail.className = data.cardClass;
+      if (kicker) kicker.textContent = data.kicker;
+      if (title) title.textContent = data.title;
+      if (body) body.textContent = data.body;
+
+      const ids = [`ov-svg-shoka`, `ov-svg-leaf`, `ov-svg-veil`];
+      ids.forEach(function (id) {
+        const g = document.getElementById(id);
+        if (g) g.style.display = (id === data.showId) ? 'block' : 'none';
+      });
+    }
+
+    function updateChecklistProgress() {
+      const items = document.querySelectorAll('.check-item');
+      let done = 0;
+      items.forEach(function (item) {
+        if (item.getAttribute('aria-checked') === 'true') {
+          done += 1;
+        }
+      });
+      const total = items.length || 1;
+      const pct = Math.round((done / total) * 100);
+      const status = document.getElementById('checklist-status');
+      const bar = document.getElementById('checklist-progress');
+      if (status) status.textContent = done + ` / ` + total + ` COMPLETED`;
+      if (bar) bar.style.width = pct + `%`;
+    }
+
+    function toggleCheck(btn) {
+      if (!btn) return;
+      const isChecked = btn.getAttribute('aria-checked') === 'true';
+      const nextState = isChecked ? 'false' : 'true';
+      btn.setAttribute('aria-checked', nextState);
+      const box = btn.querySelector('.check-box');
+      if (box) box.textContent = nextState === 'true' ? `✓` : ``;
+      updateChecklistProgress();
+    }
+
+    function resetChecklist(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `再按一次確認重設`;
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.textContent = `重設檢核表`;
+      const items = document.querySelectorAll('.check-item');
+      items.forEach(function (item) {
+        item.setAttribute('aria-checked', 'false');
+        const box = item.querySelector('.check-box');
+        if (box) box.textContent = ``;
+      });
+      updateChecklistProgress();
+    }
+  </script>
+</body>
+</html>
